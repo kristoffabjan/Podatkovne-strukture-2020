@@ -1,0 +1,22 @@
+public boolean delete(int element){
+		NodeSeznam toBeDeleted = new NodeSeznam(element);
+
+		if (this.getHead().compare(toBeDeleted) == 0){
+			this.setHead(this.getHead().getRep());
+			return true;
+		}else {
+			if(this.getHead().getRep() != null) {
+				if (this.getHead().getRep().compare(toBeDeleted) == 0){
+					this.getHead().setRep(this.getHead().getRep().getRep()); //remove next node
+					return true;
+				}else{
+					return this.getHead().getRep().delete(toBeDeleted);		//we seek and delete next el.
+				}
+				//NodeSeznam b4toBeDeleted = head.delete(new NodeSeznam(element));
+				//b4toBeDeleted.setRep(b4toBeDeleted.getRep().getRep());
+				//return true;
+			}else{
+				return false;
+			}
+		}
+	}

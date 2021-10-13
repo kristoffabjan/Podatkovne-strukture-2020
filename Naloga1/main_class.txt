@@ -1,0 +1,31 @@
+public class Main {
+    public static void main(String[] args){
+        Seznam s = new Seznam();
+        for (int i =0;i<10;i++){
+            s.insert(i);
+            System.out.println(i);
+        }
+
+        int test = 4;
+        int notelement= 100;
+
+        System.out.println("Is number " + test + " found? -> " + s.search(test));
+        System.out.println("Deletion completed -> " + s.delete(test));
+        System.out.println("Is number " + test + " found? -> " + s.search(test));
+        System.out.println("hello");
+        System.out.println(s.insert(3));
+        System.out.println("Elements added: " + s.getCounter());
+
+        System.out.println("---------------BINARY TREE from here on.--------------------------");
+        Binarno d = new Binarno();
+        for (int j = 0; j < 10; j++) {
+            d.insert(j);
+
+        }
+
+        System.out.println("Element " + test + " is found -> " + d.search(test));
+        System.out.println("Element " + notelement + " is found -> " + d.search(notelement));
+        System.out.println("Delete el: " + test + " -> " + d.delete(test) );
+        System.out.println("Delete el: " + notelement + " -> " + d.delete(notelement) );
+    }
+}

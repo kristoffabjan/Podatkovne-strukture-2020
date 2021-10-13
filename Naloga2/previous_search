@@ -1,0 +1,19 @@
+public boolean search(int searchKey) {
+		int level = max_height;
+		NodeSkipList current = min_guard;
+		while (level>=0){
+			if (current.node_array[level] != null){
+				if (current.node_array[level].key <= searchKey){
+					current = current.node_array[level];		//if searchkey is bigger than right.key go right
+				}else if (current.node_array[level].key > searchKey && (level == 0)){
+						current = current.node_array[level];		//dont go further down when on bottom
+				}else {
+					current = current.node_array[level-1];		//else go down
+				}
+			}else {
+				current = current.node_array[level-1];		//if right is null(inf) fo down
+			}
+			level--;
+		}
+		return current.node_array[0].key == searchKey;		//if keys are same -> true, else false
+	}
